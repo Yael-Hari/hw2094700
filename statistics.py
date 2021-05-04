@@ -14,4 +14,4 @@ def mean(list_of_values):
     return sum(list_of_values)/len(list_of_values)
 
 
-stats_list = [median, mean]
+statistic_functions = [median, mean]
