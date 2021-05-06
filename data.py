@@ -6,7 +6,10 @@ class Data:
         self.data = load_data(path)
 
     def get_all_districts(self):
-        # todo docstring
+        """
+        make a list of districts names
+        :return: list of districts names
+        """
         region_names = []
         for name in self.data["denominazione_region"]:
             if name not in region_names:
@@ -14,7 +17,11 @@ class Data:
         return region_names
 
     def set_districts_data(self, districts):
-        # todo docstring
+        """
+
+        :param districts:
+        :return:
+        """
         result_dict = dict()
         for key in self.data.keys():
             result_dict[key] = []
@@ -26,12 +33,12 @@ class Data:
 
 def add_to_dict(main_dict, second_dict, i):
     """
-            this func adding record from main dict to the second dict
-            :param main_dict: dict from which to add the record
-            :param second_dict: dict to which to add the record
-            :param i: int: number of record in main dict to add
-            :return: none
-            """
+    this func adding record from main dict to the second dict
+    :param main_dict: dict from which to add the record
+    :param second_dict: dict to which to add the record
+    :param i: int: number of record in main dict to add
+    :return: none
+    """
     for key in main_dict.keys():
         second_dict[key].append((main_dict[key])[i])
 

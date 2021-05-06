@@ -3,9 +3,11 @@ import data
 import districts
 import statistics
 
+
 def main(argv):
     Q1(argv[1])
     Q2(argv[1])
+
 
 def Q1(path):
     my_data = data.Data(path=path)
@@ -29,7 +31,7 @@ def Q2(path):
     for i in green_dict:
         if green_dict[i] == "not green":
             not_green += 1
-    print("Question2: ")
+    print("Question 2: ")
     print("Number of districts: " + str(len(green_dict.keys())))
     print("Number of not green districts: " + str(not_green))
 
