@@ -7,7 +7,11 @@ class Districts:
         self.dataset = dataset
 
     def filter_districts(self, letters):
-        # todo docstring
+        """
+        leaving only districts starting with chars from the letters set
+        :param letters: set of chars
+        :return: none
+        """
         all_districts_list = self.dataset.get_all_districts()
         relevant_districts_list = []
         for name in all_districts_list:
@@ -17,6 +21,12 @@ class Districts:
         self.dataset.set_districts_data(districts=relevant_districts_list)
 
     def print_details(self, features, statistic_functions):
+        """
+        printing stats
+        :param features: list of features
+        :param statistic_functions: list of statistic functions
+        :return: none
+        """
         for i in features:
             mean = statistic_functions[0](self.dataset.data[i])
             meadian = statistic_functions[1](self.dataset.data[i])
@@ -24,6 +34,10 @@ class Districts:
         print()
 
     def determine_day_type(self):
+        """
+        determining if a day is green
+        :return: none
+        """
         self.dataset.data["day_type"] = []
         for i in range(len(self.dataset.data["resigned_healed"])):
             if (self.dataset.data["resigned_healed"][i] - self.dataset.data["new_positives"][i]) > 0:
@@ -32,6 +46,9 @@ class Districts:
                 self.dataset.data["day_type"].append(0)
 
     def get_districts_class(self):
+        """
+        :return: dict with keys all different districts and values green/not green
+        """
         all_names = self.dataset.get_all_districts()
         day_type_dict = {all_names[i]: 0 for i in range(len(all_names))}
 

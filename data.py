@@ -19,8 +19,8 @@ class Data:
     def set_districts_data(self, districts):
         """
 
-        :param districts:
-        :return:
+        :param districts: list of districts
+        :return:none
         """
         result_dict = dict()
         for key in self.data.keys():
@@ -44,6 +44,11 @@ def add_to_dict(main_dict, second_dict, i):
 
 
 def load_data(path):
+    """
+
+    :param path: path of file to load
+    :return: dict
+    """
     df = pandas.read_csv(path)
     data = df.to_dict(orient='list')
     return data
